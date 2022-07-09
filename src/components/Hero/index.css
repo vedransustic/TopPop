@@ -1,0 +1,38 @@
+.hero{
+    display: flex;
+    justify-content: space-around;
+    height: 30vh;
+}
+
+.hero-titles{
+    flex:1;
+}
+
+.hero-img{
+    flex:1;
+    width: 296px;
+    height: 234px;
+    display: flex;
+    margin: auto;
+    align-items: center;
+}
+
+
+.hero-header{
+    padding: 63px 0 0 70px;
+    font-size: 24px;
+    text-transform: uppercase;
+    font-weight: 600;
+    line-height: 30px;
+    color: var(--dark);
+}
+
+.hero-subtitle{
+    padding: 16px 0 0 70px;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 600;
+    line-height: 20px;
+    color: var(--dark-gray-tone);
+    opacity: .5;
+}

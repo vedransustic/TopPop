@@ -1,0 +1,27 @@
+:root{
+    --dark: #2F2E41;
+    --dark-gray-tone: #6D6C6D;
+    --middle-gray-tone: #DAD8D9;
+    --light-gray-tone: #E9E3E3;
+    --white: #FFFFFF;
+    --redish-pink: #F4717F;
+
+    --main-font: Montserrat, sans-serif;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: var(--light-gray-tone);
+    position: relative;
+}
+
+.App{
+    width: 820px;
+    margin: auto;
+    background-color: var(--white);
+}
