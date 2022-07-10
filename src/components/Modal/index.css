@@ -1,14 +1,83 @@
 .modal-screen{
-    width: 100vw;
-    height: 100vh;
+    position: relative;
+}
+
+.close-icon{
+    position: absolute;
+    top: 4px;
+    right: 4px;
 }
 
 .modal-container{
     width: 500px;
     height: 600px;
     background-color: var(--dark);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    color: var(--white);
+    padding: 0 50px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
 }
 
-audio{
-    
+.modal-img{
+    width: 220px;
+    height: 220px;
+    border-radius: 12px;
+    margin-top: 30px;
+}
+
+.rank{
+    font-weight: normal;
+    font-size: xx-large;
+}
+.container-title{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.modal-container > .container-title > .title{
+    font-weight: bold;
+    font-size: 24px;
+    color: var(--white);
+    text-align: center;
+}
+
+.artist{
+    font-weight: normal;
+    font-size: 24px;
+    color: var(--dark-gray-tone);
+    text-transform: uppercase;
+    padding-top: 10px;
+}
+
+.container-prev{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.modal-container > .container-prev > .duration{
+    width: 160px;
+    font-weight: normal;
+    font-size: 20px;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+}
+
+@media screen and (max-width: 720px){
+    .modal-container{
+        width: 100%;
+    }
 }

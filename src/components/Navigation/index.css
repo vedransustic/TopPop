@@ -1,6 +1,6 @@
 .navigation{
     width: 100%;
-    height: 64px;
+    height: var(--nav-height);
     background-color: var(--dark);
     position: relative;
     display: flex;

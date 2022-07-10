@@ -6,13 +6,24 @@
     --white: #FFFFFF;
     --redish-pink: #F4717F;
 
+    --nav-height: 64px;
+    --hero-height: 30vh;
+    --min-song-list: calc(97.9vh - var(--nav-height) - var(--hero-height) - var(--footer-height));
+    --footer-height: 64px;
+
+    --hero-height-mob: 40vh;
+    --min-song-list-mob: calc(97.8vh - var(--nav-height) - var(--hero-height-mob) - var(--footer-height));
+    --footer-height-mob: 64px;
+
     --main-font: Montserrat, sans-serif;
+    --card-padding-mobile: 20px;
 }
 
-*{
+*, *::before, *::after{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: var(--main-font);
 }
 
 body{
@@ -24,4 +35,10 @@ body{
     width: 820px;
     margin: auto;
     background-color: var(--white);
+}
+
+@media screen and (max-width: 720px){
+    .App {
+        width: 100vw;
+    }
 }

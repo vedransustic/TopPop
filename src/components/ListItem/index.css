@@ -52,3 +52,49 @@
     top: 3px;
     right: 3px;
 }
+
+@media screen and (max-width: 720px){
+    .list-item{
+        width: auto;
+        min-height: 64px;
+        background-color: var(--white);
+        margin: 10px;
+        border-radius: 40px;
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 2fr 1fr 1fr;
+        grid-template-areas:
+    "song-img title title title duration icon"
+    "song-img subtitle subtitle subtitle duration icon";
+    }
+    .album-cover{
+        width: 40px;
+        grid-area: song-img;
+        position: absolute;
+        top: 12px;
+        left: 12px;
+    }
+
+    .title{
+        font-size: 14px;
+        padding-left: var(--card-padding-mobile);
+    }
+
+    .subtitle{
+        font-size: 14px;
+        padding-left: var(--card-padding-mobile);
+    }
+
+    .duration{
+        padding-right: 10px;
+        font-size: 16px;
+    }
+
+    .info{
+        width: 40px;
+        grid-area: icon;
+        position: absolute;
+        top: 12px;
+        right: 12px;
+    }
+}
