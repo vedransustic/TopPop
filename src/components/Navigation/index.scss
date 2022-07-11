@@ -1,0 +1,25 @@
+@use '../../variables' as v;
+
+.navigation {
+  width: 100%;
+  height: v.$nav-height;
+  background-color: v.$dark;
+  position: relative;
+  display: flex;
+  align-items: center;
+  &__logo {
+    width: 82px;
+    height: 51px;
+    position: absolute;
+    left: 70px;
+  }
+  &__text {
+    color: v.$white;
+    font-family: v.$main-font;
+    font-weight: 400;
+    line-height: 20px;
+    font-style: normal;
+    position: absolute;
+    right: 70px;
+  }
+}

@@ -1,0 +1,27 @@
+@use 'variables' as v;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: v.$main-font;
+}
+
+body {
+  background-color: v.$light-gray-tone;
+  position: relative;
+}
+
+.App {
+  width: 820px;
+  margin: auto;
+  background-color: v.$white;
+}
+
+@media screen and (max-width: 720px) {
+  .App {
+    width: 100%;
+  }
+}

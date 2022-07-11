@@ -1,5 +1,5 @@
 import React, { memo, useCallback, useEffect, useState } from 'react'
-import './index.css'
+import './indexs.scss'
 import { Listening, SearchIcon, SelectIcon } from '../../images'
 import { ListItem, Modal, Spinner } from '..'
 import {
@@ -41,7 +41,6 @@ const SongList: React.FC = () => {
       })
       .finally(() => setLoading(false))
   }
-
   const openModal: OpenModal = (song) => {
     setSelectedSong({
       rank: song.rank,
@@ -126,24 +125,28 @@ const SongList: React.FC = () => {
 
   return (
     <>
-      <main>
-        <img src={Listening} alt='listening' className='song-list-img' />
-        <div className='song-list'>
-          <div className='filters-container'>
-            <div className='search-container'>
+      <main className='song'>
+        <img src={Listening} alt='listening' className='song__list__img' />
+        <div className='song__list'>
+          <div className='song__list__filters'>
+            <div className='song__list__filters__search'>
               <input
                 type='text'
-                className='search-filter'
+                className='song__list__filters__search__filter'
                 placeholder='Song or Artist...'
                 onChange={(e) => handleSearch(e.target.value)}
               />
-              <img src={SearchIcon} alt='searchIcon' className='buttonIcon' />
+              <img
+                src={SearchIcon}
+                alt='searchIcon'
+                className='song__list__filters__search__buttonIcon'
+              />
             </div>
-            <div className='select-container'>
+            <div className='song__list__filters__select'>
               <select
                 name='select-filter'
                 id='select-filter'
-                className='select-filter'
+                className='song__list__filters__select__filter'
                 onChange={(e) => handleSort(e.target.value)}
               >
                 <option value=''>-- Sorting options--</option>
@@ -152,7 +155,11 @@ const SongList: React.FC = () => {
                 <option value='title-alp'>Title</option>
                 <option value='title-alp-rev'>Title (rev)</option>
               </select>
-              <img src={SelectIcon} alt='select-icon' className='selectIcon' />
+              <img
+                src={SelectIcon}
+                alt='select-icon'
+                className='song__list__filters__select__selectIcon'
+              />
             </div>
           </div>
           {filteredData &&
@@ -168,6 +175,7 @@ const SongList: React.FC = () => {
             })}
         </div>
       </main>
+
       {modalVisible && (
         <Modal
           closeModal={closeModal}

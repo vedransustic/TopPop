@@ -1,0 +1,26 @@
+@use '../../variables' as v;
+
+.footer {
+  width: 100%;
+  height: v.$footer-height;
+  background-color: v.$dark;
+  display: flex;
+
+  &__text {
+    color: v.$white;
+    font-family: v.$main-font;
+    font-size: 16px;
+    line-height: 20px;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .footer{
+    &__text {
+      font-size: 12px;
+      line-height: 16px;
+      margin: auto;
+    }
+  }
+}

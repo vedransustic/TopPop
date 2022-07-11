@@ -1,0 +1,105 @@
+@use '../../variables' as v;
+
+.list__item {
+  width: 560px;
+  min-height: 64px;
+  background-color: v.$white;
+  margin: 10px 60px 10px 60px;
+  border-radius: 40px;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 2fr 1fr 1fr;
+  grid-template-areas:
+    'song-img title title title duration icon'
+    'song-img subtitle subtitle subtitle duration icon';
+
+
+  &__album__cover {
+    border-radius: 50%;
+    width: 50px;
+    grid-area: song-img;
+    position: absolute;
+    top: 7px;
+    left: 7px;
+  }
+
+  &__title {
+    grid-area: title;
+    font-family: Montserrat, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: v.$dark;
+    display: flex;
+    align-items: end;
+  }
+
+  &__subtitle {
+    grid-area: subtitle;
+    font-family: Montserrat, sans-serif;
+    font-size: 14px;
+    color: v.$dark-gray-tone;
+    max-width: 250px;
+  }
+
+  &__duration {
+    grid-area: duration;
+    margin: auto;
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  &__info {
+    grid-area: icon;
+    position: absolute;
+    top: 3px;
+    right: 3px;
+  }
+}
+
+
+@media screen and (max-width: 720px) {
+  .list__item {
+    width: auto;
+    min-height: 64px;
+    background-color: v.$white;
+    margin: 10px;
+    border-radius: 40px;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 2fr 1fr 1fr;
+    grid-template-areas:
+      'song-img title title title duration icon'
+      'song-img subtitle subtitle subtitle duration icon';
+
+    &__album-cover {
+      width: 40px;
+      grid-area: song-img;
+      position: absolute;
+      top: 12px;
+      left: 12px;
+    }
+
+    &__title {
+      font-size: 14px;
+      padding-left: v.$card-padding-mobile;
+    }
+
+    &__subtitle {
+      font-size: 14px;
+      padding-left: v.$card-padding-mobile;
+    }
+
+    &__duration {
+      padding-right: 10px;
+      font-size: 16px;
+    }
+
+    &__info {
+      width: 40px;
+      grid-area: icon;
+      position: absolute;
+      top: 12px;
+      right: 12px;
+    }
+  }
+}

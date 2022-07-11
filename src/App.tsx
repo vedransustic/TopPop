@@ -1,4 +1,4 @@
-import './App.css'
+import './App.scss'
 import { Footer, Hero, Navigation, SongList } from './components'
 function App() {
   return (

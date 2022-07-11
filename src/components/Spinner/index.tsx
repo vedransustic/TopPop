@@ -1,5 +1,5 @@
 import React, { memo } from 'react'
-import './index.css'
+import './index.scss'
 import FSpinner from '../../images/Spinner.svg'
 
 const Spinner = () => {

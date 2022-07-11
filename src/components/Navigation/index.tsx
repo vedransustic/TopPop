@@ -1,14 +1,15 @@
 import React, { memo } from 'react'
-import './index.css'
+import './index.scss'
 import { Logo } from '../../images'
+import { navText } from '../../const'
 
 const Navigation: React.FC = () => {
   return (
     <div className='navigation'>
-      <div className='logo'>
+      <div className='navigation__logo'>
         <img src={Logo} alt='logo' />
       </div>
-      <p className='nav-text'>Clover studio</p>
+      <p className='navigation__text'>{navText}</p>
     </div>
   )
 }

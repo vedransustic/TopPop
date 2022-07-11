@@ -1,22 +1,22 @@
 import React, { memo } from 'react'
-import './index.css'
+import './index.scss'
 import { Close } from '../../images'
 import { formatSongDuration } from '../../utils/functions'
 import { ModalProps } from './types'
 
 const Modal = ({ closeModal, rank, cover, title, artistName, duration, preview }: ModalProps) => {
   return (
-    <div className='modal-screen'>
-      <div className='modal-container'>
-        <img src={Close} alt='image' className='close-icon' onClick={closeModal} />
-        <img src={cover} alt='image' className='modal-img' />
-        <div className='container-title'>
-          <h3 className='rank'>#{rank}</h3>
-          <h2 className='title'>{title}</h2>
-          <h3 className='artist'>{artistName}</h3>
+    <>
+      <div className='modal'>
+        <img src={Close} alt='image' className='modal__close__icon' onClick={closeModal} />
+        <img src={cover} alt='image' className='modal__img' />
+        <div className='modal__title'>
+          <h3 className='modal__title__rank'>#{rank}</h3>
+          <h2 className='modal__title__title'>{title}</h2>
+          <h3 className='modal__title__artist'>{artistName}</h3>
         </div>
-        <div className='container-prev'>
-          <p className='duration'>
+        <div className='modal__prev'>
+          <p className='modal__prev__duration'>
             <span>duration:</span>
             <span>{formatSongDuration(duration)}</span>
           </p>
@@ -27,7 +27,7 @@ const Modal = ({ closeModal, rank, cover, title, artistName, duration, preview }
           </audio>
         </div>
       </div>
-    </div>
+    </>
   )
 }
 

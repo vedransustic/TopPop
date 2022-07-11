@@ -1,0 +1,81 @@
+@use '../../variables' as v;
+
+.modal{
+    width: 500px;
+    height: 600px;
+    background-color: v.$dark;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    color: v.$white;
+    padding: 0 50px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    &__close__icon {
+      position: absolute;
+      top: 4px;
+      right: 4px;
+    }
+
+    &__img {
+      width: 220px;
+      height: 220px;
+      border-radius: 12px;
+      margin-top: 30px;
+    }
+
+    &__title {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      &__rank {
+        font-weight: normal;
+        font-size: xx-large;
+      }
+      &__title {
+        font-weight: bold;
+        font-size: 24px;
+        color: v.$white;
+        text-align: center;
+      }
+      &__artist {
+        font-weight: normal;
+        font-size: 24px;
+        color: v.$dark-gray-tone;
+        text-transform: uppercase;
+        padding-top: 10px;
+      }
+    }
+
+    &__prev {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding-bottom: 10px;
+
+      &__duration {
+        width: 160px;
+        font-weight: normal;
+        font-size: 20px;
+        text-transform: uppercase;
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 10px;
+      }
+    }
+}
+
+@media screen and (max-width: 720px) {
+  .modal {
+      width: 100%;
+    }
+
+}
