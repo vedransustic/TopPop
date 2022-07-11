@@ -29,7 +29,7 @@ const SongList: React.FC = () => {
   useEffect(() => {
     getData().then()
   }, [])
-  console.log(import.meta.env.VITE_DOMAIN_PROXY)
+
   const getData = async () => {
     await axios(`${import.meta.env.VITE_DOMAIN_PROXY}${import.meta.env.VITE_DOMAIN}`)
       .then((response) => {
