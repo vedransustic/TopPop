@@ -114,9 +114,9 @@ const SongList: React.FC = () => {
 
   if (loading) {
     return (
-      <main>
-        <img src={Listening} alt='listening' className='song-list-img' />
-        <div className='song-list'>
+      <main className='song'>
+        <img src={Listening} alt='listening' className='song__list__img' />
+        <div className='song__list'>
           <Spinner />
         </div>
       </main>
