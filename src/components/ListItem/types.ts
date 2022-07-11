@@ -1,4 +1,4 @@
-import { Artist, DataItemType } from '../../data/types'
+import { Artist, DataItemType } from '../SongList/types'
 
 export type ListItemProps = {
   artist: Artist
