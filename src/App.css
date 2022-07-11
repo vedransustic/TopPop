@@ -1,44 +1,48 @@
-:root{
-    --dark: #2F2E41;
-    --dark-gray-tone: #6D6C6D;
-    --middle-gray-tone: #DAD8D9;
-    --light-gray-tone: #E9E3E3;
-    --white: #FFFFFF;
-    --redish-pink: #F4717F;
+:root {
+  --dark: #2f2e41;
+  --dark-gray-tone: #6d6c6d;
+  --middle-gray-tone: #dad8d9;
+  --light-gray-tone: #e9e3e3;
+  --white: #ffffff;
+  --redish-pink: #f4717f;
 
-    --nav-height: 64px;
-    --hero-height: 30vh;
-    --min-song-list: calc(97.9vh - var(--nav-height) - var(--hero-height) - var(--footer-height));
-    --footer-height: 64px;
+  --nav-height: 64px;
+  --hero-height: 30vh;
+  --min-song-list: calc(97.9vh - var(--nav-height) - var(--hero-height) - var(--footer-height));
+  --footer-height: 64px;
 
-    --hero-height-mob: 40vh;
-    --min-song-list-mob: calc(97.8vh - var(--nav-height) - var(--hero-height-mob) - var(--footer-height));
-    --footer-height-mob: 64px;
+  --hero-height-mob: 40vh;
+  --min-song-list-mob: calc(
+    97.8vh - var(--nav-height) - var(--hero-height-mob) - var(--footer-height)
+  );
+  --footer-height-mob: 64px;
 
-    --main-font: Montserrat, sans-serif;
-    --card-padding-mobile: 20px;
+  --main-font: Montserrat, sans-serif;
+  --card-padding-mobile: 20px;
 }
 
-*, *::before, *::after{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: var(--main-font);
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--main-font);
 }
 
-body{
-    background-color: var(--light-gray-tone);
-    position: relative;
+body {
+  background-color: var(--light-gray-tone);
+  position: relative;
 }
 
-.App{
-    width: 820px;
-    margin: auto;
-    background-color: var(--white);
+.App {
+  width: 820px;
+  margin: auto;
+  background-color: var(--white);
 }
 
-@media screen and (max-width: 720px){
-    .App {
-        width: 100vw;
-    }
+@media screen and (max-width: 720px) {
+  .App {
+    width: 100vw;
+  }
 }

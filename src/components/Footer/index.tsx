@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { memo } from 'react'
 import './index.css'
 import { footerText } from '../../const'
 
-const Footer = () => {
+const Footer: React.FC = () => {
   return (
     <footer className='footer'>
       <p className='footer-text'>&#169; {footerText}</p>
@@ -10,4 +10,4 @@ const Footer = () => {
   )
 }
 
-export default Footer
+export default memo(Footer)

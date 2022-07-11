@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import './index.css'
 import { Info } from '../../images'
 import { formatSongDuration } from '../../utils/functions'
@@ -16,4 +16,4 @@ const ListItem = ({ artist, duration, title, handleModal, song }: ListItemProps)
   )
 }
 
-export default ListItem
+export default memo(ListItem)

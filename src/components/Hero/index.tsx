@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { memo } from 'react'
 import './index.css'
 import { Audio } from '../../images'
 import { heroSubtitle, heroTitle } from '../../const'
 
-const Hero = () => {
+const Hero: React.FC = () => {
   return (
     <div className='hero'>
       <div className='hero-titles'>
@@ -15,4 +15,4 @@ const Hero = () => {
   )
 }
 
-export default Hero
+export default memo(Hero)

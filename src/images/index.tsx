@@ -5,5 +5,6 @@ import SearchIcon from './SearchIcon.svg'
 import SelectIcon from './SelectIcon.svg'
 import Info from './Info.svg'
 import Close from './Close.svg'
+import Spinner from './Spinner.svg'
 
-export { Logo, Audio, Listening, SearchIcon, SelectIcon, Info, Close }
+export { Logo, Audio, Listening, SearchIcon, SelectIcon, Info, Close, Spinner }

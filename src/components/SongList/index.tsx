@@ -1,11 +1,21 @@
-import React, { useState } from 'react'
+import React, { memo, useCallback, useEffect, useState } from 'react'
 import './index.css'
 import { Listening, SearchIcon, SelectIcon } from '../../images'
-import { ListItem, Modal } from '..'
-import { data } from '../../data'
-import { CloseModal, HandleSearch, HandleSort, OpenModal, SelectedSong } from './types'
+import { ListItem, Modal, Spinner } from '..'
+import {
+  CloseModal,
+  DataItemType,
+  HandleSearch,
+  HandleSort,
+  OpenModal,
+  SelectedSong,
+} from './types'
+import axios from 'axios'
 
-const SongList = () => {
+const SongList: React.FC = () => {
+  const [startData, setStartData] = useState([])
+  const [filteredData, setFilteredData] = useState([])
+  const [loading, setLoading] = useState<boolean>(true)
   const [modalVisible, setModalVisible] = useState<boolean>(false)
   const [selectedSong, setSelectedSong] = useState<SelectedSong>({
     rank: 0,
@@ -15,31 +25,22 @@ const SongList = () => {
     duration: 0,
     preview: '',
   })
-  const [filteredData, setFilteredData] = useState(data)
-  //  const [data, setData] = useState()
-  /*   const url = 'https://api.deezer.com/chart'
-
-  const getMusicData = async () => {
-    try {
-      const response: any = await axios
-        .get(url, {
-          headers: {
-            domain: 'deezer.com',
-          },
-        })
-        .then((res) => {
-          console.log(res.data)
-        })
-      console.log(response)
-      //setData(response)
-    } catch (e) {
-      console.error(e)
-    }
-  }
 
   useEffect(() => {
-    getMusicData()
-  }, []) */
+    getData().then()
+  }, [])
+  console.log(import.meta.env.VITE_DOMAIN_PROXY)
+  const getData = async () => {
+    await axios(`${import.meta.env.VITE_DOMAIN_PROXY}${import.meta.env.VITE_DOMAIN}`)
+      .then((response) => {
+        setStartData(response.data.tracks.data)
+        setFilteredData(response.data.tracks.data)
+      })
+      .catch((error) => {
+        console.error('ERROR fetching data: ', error)
+      })
+      .finally(() => setLoading(false))
+  }
 
   const openModal: OpenModal = (song) => {
     setSelectedSong({
@@ -63,39 +64,64 @@ const SongList = () => {
     })
     setModalVisible(false)
   }
-  const handleSearch: HandleSearch = (searchPhrase) => {
-    const newFilterdData = data.filter(
-      (item) =>
-        item.title.toLowerCase().includes(searchPhrase.toLowerCase()) ||
-        item.artist.name.toLowerCase().includes(searchPhrase.toLowerCase()),
+  const handleSearch: HandleSearch = useCallback(
+    (searchPhrase: string) => {
+      const newFilterdData = startData.filter(
+        (item: DataItemType) =>
+          item.title.toLowerCase().includes(searchPhrase.toLowerCase()) ||
+          item.artist.name.toLowerCase().includes(searchPhrase.toLowerCase()),
+      )
+      setFilteredData(newFilterdData)
+    },
+    [startData],
+  )
+  const handleSort: HandleSort = useCallback(
+    (option) => {
+      switch (option) {
+        case 'dur-asc':
+          setFilteredData([
+            ...filteredData.sort(
+              (a: { duration: number }, b: { duration: number }) => a.duration - b.duration,
+            ),
+          ])
+          break
+        case 'dur-desc':
+          setFilteredData([
+            ...filteredData.sort(
+              (a: { duration: number }, b: { duration: number }) => b.duration - a.duration,
+            ),
+          ])
+          break
+        case 'title-alp':
+          setFilteredData([
+            ...filteredData.sort((a: { title: string }, b: { title: string }) =>
+              a.title.toLowerCase().localeCompare(b.title.toLowerCase()),
+            ),
+          ])
+          break
+        case 'title-alp-rev':
+          setFilteredData([
+            ...filteredData.sort((a: { title: string }, b: { title: string }) =>
+              b.title.toLowerCase().localeCompare(a.title.toLowerCase()),
+            ),
+          ])
+          break
+        default:
+          setFilteredData([...filteredData])
+      }
+    },
+    [filteredData],
+  )
+
+  if (loading) {
+    return (
+      <main>
+        <img src={Listening} alt='listening' className='song-list-img' />
+        <div className='song-list'>
+          <Spinner />
+        </div>
+      </main>
     )
-    setFilteredData(newFilterdData)
-  }
-  const handleSort: HandleSort = (option) => {
-    switch (option) {
-      case 'dur-asc':
-        setFilteredData([...filteredData.sort((a, b) => a.duration - b.duration)])
-        break
-      case 'dur-desc':
-        setFilteredData([...filteredData.sort((a, b) => b.duration - a.duration)])
-        break
-      case 'title-alp':
-        setFilteredData([
-          ...filteredData.sort((a, b) =>
-            a.title.toLowerCase().localeCompare(b.title.toLowerCase()),
-          ),
-        ])
-        break
-      case 'title-alp-rev':
-        setFilteredData([
-          ...filteredData.sort((a, b) =>
-            b.title.toLowerCase().localeCompare(a.title.toLowerCase()),
-          ),
-        ])
-        break
-      default:
-        setFilteredData([...filteredData])
-    }
   }
 
   return (
@@ -129,7 +155,7 @@ const SongList = () => {
             </div>
           </div>
           {filteredData &&
-            filteredData.map((item) => {
+            filteredData.map((item: DataItemType) => {
               return (
                 <ListItem
                   key={item.id}
@@ -156,4 +182,4 @@ const SongList = () => {
   )
 }
 
-export default SongList
+export default memo(SongList)

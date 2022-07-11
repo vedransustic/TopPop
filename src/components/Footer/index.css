@@ -1,22 +1,22 @@
-.footer{
-    width: 100%;
-    height: var(--footer-height);
-    background-color: var(--dark);
-    display: flex;
+.footer {
+  width: 100%;
+  height: var(--footer-height);
+  background-color: var(--dark);
+  display: flex;
 }
 
-.footer-text{
-    color: var(--white);
-    font-family: var(--main-font);
-    font-size: 16px;
-    line-height: 20px;
+.footer-text {
+  color: var(--white);
+  font-family: var(--main-font);
+  font-size: 16px;
+  line-height: 20px;
+  margin: auto;
+}
+
+@media screen and (max-width: 720px) {
+  .footer-text {
+    font-size: 12px;
+    line-height: 16px;
     margin: auto;
-}
-
-@media screen and (max-width: 720px){
-    .footer-text{
-        font-size: 12px;
-        line-height: 16px;
-        margin: auto;
-    }
+  }
 }

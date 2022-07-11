@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { memo } from 'react'
 import './index.css'
 import { Logo } from '../../images'
 
-const Navigation = () => {
+const Navigation: React.FC = () => {
   return (
     <div className='navigation'>
       <div className='logo'>
@@ -13,4 +13,4 @@ const Navigation = () => {
   )
 }
 
-export default Navigation
+export default memo(Navigation)

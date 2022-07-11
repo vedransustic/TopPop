@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import './index.css'
 import { Close } from '../../images'
 import { formatSongDuration } from '../../utils/functions'
@@ -31,4 +31,4 @@ const Modal = ({ closeModal, rank, cover, title, artistName, duration, preview }
   )
 }
 
-export default Modal
+export default memo(Modal)
