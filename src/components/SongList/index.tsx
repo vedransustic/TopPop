@@ -146,6 +146,7 @@ const SongList: React.FC = () => {
                 className='select-filter'
                 onChange={(e) => handleSort(e.target.value)}
               >
+                <option value=''>-- Sorting options--</option>
                 <option value='dur-asc'>Duration (asc)</option>
                 <option value='dur-desc'>Duration (desc)</option>
                 <option value='title-alp'>Title</option>
